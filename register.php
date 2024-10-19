@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $pdo->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
     $stmt->execute([$username, $passwordHash, $role]);
 
-    header("Location: index.php");
+    header("Location: login.php");
     exit;
 }
 ?>
