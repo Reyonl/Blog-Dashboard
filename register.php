@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">Daftar</button>
             </form>
-            <p class="mt-4 text-center text-gray-600">Sudah punya akun? <a href="index.php" class="text-indigo-600 hover:underline">Login di sini</a></p>
+            <p class="mt-4 text-center text-gray-600">Sudah punya akun? <a href="login.php" class="text-indigo-600 hover:underline">Login di sini</a></p>
         </div>
     </div>
 </body>
