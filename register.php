@@ -2,18 +2,30 @@
 session_start();
 include 'config.php';
 
+$usernameError = '';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $role = $_POST['role']; // Menentukan peran pengguna
+    $role = $_POST['role'];
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-    // Menyimpan pengguna baru ke database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
-    $stmt->execute([$username, $passwordHash, $role]);
+    // Check if username already exists
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
+    $stmt->execute([$username]);
+    $userExists = $stmt->fetchColumn();
 
-    header("Location: index.php");
-    exit;
+    if ($userExists) {
+        // Username already exists
+        $usernameError = 'Username sudah ada';
+    } else {
+        // Insert new user into the database
+        $stmt = $pdo->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
+        $stmt->execute([$username, $passwordHash, $role]);
+
+        header("Location: login.php");
+        exit;
+    }
 }
 ?>
 
@@ -24,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-100">
     <div class="flex items-center justify-center min-h-screen">
@@ -50,5 +63,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="mt-4 text-center text-gray-600">Sudah punya akun? <a href="login.php" class="text-indigo-600 hover:underline">Login di sini</a></p>
         </div>
     </div>
+
+    <script>
+        // Check if there's an error and show SweetAlert
+        <?php if ($usernameError): ?>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '<?php echo $usernameError; ?>',
+            });
+        <?php endif; ?>
+    </script>
 </body>
 </html>

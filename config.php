@@ -1,8 +1,11 @@
 <?php
-$host = 'localhost'; // Ganti sesuai dengan host database Anda
-$db = 'blog'; // Ganti dengan nama database Anda
-$user = 'root'; // Ganti dengan username database Anda
-$pass = ''; // Ganti dengan password database Anda
+$host = 'localhost'; 
+$db ='blog';
+$user ='root';
+$pass = '';
+// $db = 'u721127026_blog'; 
+// $user = 'u721127026_root'; 
+// $pass = 'Tplp004#32'; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
