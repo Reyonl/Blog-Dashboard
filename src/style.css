@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Added bottom margin for spacing */
+}
+
+.error {
+    color: red; /* Fixed color definition */
+}
+
+a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+a:hover {
+    color: #23527c;
+}
+
+button span {
+    transition: opacity 0.3s ease-in-out;
+}
+
+button:hover span {
+    opacity: 1;
+}
+
+
+.back-to-top {
+    display: none; /* Mulai dengan menyembunyikan tombol */
+}
+
+/* Sembunyikan kotak komentar secara default */
+.comment-box {
+    display: none;
+}
+
+/* Gaya untuk mode gelap */
+.dark {
+    background-color: #1a202c; /* Warna latar belakang gelap */
+    color: #f7fafc; /* Warna teks terang */
+}
+
+.dark .bg-white {
+    background-color: #2d3748; /* Warna latar belakang untuk kotak postingan di mode gelap */
+    color: #f7fafc; /* Ubah warna teks di dalam kotak menjadi putih */
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark p {
+    color: #f7fafc; /* Ubah warna teks judul dan paragraf menjadi putih */
+}
+
+/* Ubah warna teks komentar di mode gelap */
+.dark .text-gray-700 {
+    color: #f7fafc; /* Ubah warna teks komentar menjadi putih */
+}

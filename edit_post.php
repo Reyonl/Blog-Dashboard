@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Edit Postingan</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-[#f5f5e9]">
     <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
         <h1 class="text-3xl font-bold mb-6">Edit Postingan</h1>
 
