@@ -4,7 +4,7 @@ include 'config.php';
 
 // Memeriksa apakah pengguna adalah admin
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header("Location: index.php");
+    header("Location: login.php");
     exit;
 }
 
